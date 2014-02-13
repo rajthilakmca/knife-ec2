@@ -70,7 +70,12 @@ class Chef
         end
 
         @name_args.each do |instance_id|
-
+        
+        connection.servers.all.each do |ser|
+        	if ser.tags["Name"].to_s == "#{instance_id}"
+        		instance_id = server.id
+		end
+	end
           begin
             @server = connection.servers.get(instance_id)
 
