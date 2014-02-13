@@ -73,7 +73,7 @@ class Chef
         
         connection.servers.all.each do |ser|
         	if ser.tags["Name"].to_s == "#{instance_id}"
-        		instance_id = server.id
+        		instance_id = ser.id
 		end
 	end
           begin
